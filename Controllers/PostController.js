@@ -6,11 +6,11 @@ import mongoose from "mongoose";
 // Create new post 
 export const createPost = async(req, res)=> {
     // const newPost = req.body    [can write also like below line]
-    const newPost = new PostModel(req.body)
+    const newPost = new PostModel(req.body);
 
     try {
-        await newPost.save()
-        res.status(200).jsno("Post created!")
+        await newPost.save();
+        res.status(200).json(newPost)
     } catch (error) {
         res.status(500).json(error)
     }
